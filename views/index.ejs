@@ -1,0 +1,28 @@
+<%- include("extras/header") %>
+<body>
+    <nav class="navbar bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+        </div>
+    </nav>
+
+    <div class="container mt-3">
+        <form action="todos" method="POST" class="d-flex">
+            <input
+                type="text"
+                name="todoInput"
+                placeholder="Enter todo..."
+                class="form-control"
+            />
+            <input type="submit" value="Add" class="btn btn-md btn-primary" />
+        </form>
+
+        <ul class="list-group mt-3">
+            <li class="list-group-item">Dummy</li>
+            <% locals.todos.forEach(e => { %>
+            <li class="list-group-item"><%= e %></li>
+            <% }); %>
+        </ul>
+        Todo list: <%= locals.todos || "Nothing!" %>
+    </div>
+</body>
