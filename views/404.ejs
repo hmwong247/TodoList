@@ -1,0 +1,18 @@
+<%- include("./extras/header") %>
+
+<body>
+    <div class="d-flex align-items-center justify-content-center">
+        <div class="text-center pt-5">
+            <h1 class="display-1 fw-bold">404</h1>
+            <h3 class="lead">Page not found.</h3>
+            <h3><%= locals.url %> does not exists</h3>
+            <form action="/" method="GET">
+                <input
+                    type="submit"
+                    value="Back to Home"
+                    class="btn btn-md btn-primary"
+                />
+            </form>
+        </div>
+    </div>
+</body>

@@ -16,6 +16,11 @@ const todosRouter = require("./routes/todos");
 app.use("/", indexRouter);
 app.use("/todos", todosRouter);
 
+// 404 page
+app.use((req, res) => {
+    res.status(404).render("404", {url: req.url});
+});
+
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);
 });
