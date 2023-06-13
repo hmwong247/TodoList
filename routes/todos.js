@@ -14,10 +14,9 @@ async function insertTodo(item) {
     try {
         await db.connect();
         const res = await db.query(
-            "insert into todos (context, created) values ($1, current_timestamp) RETURNING *;",
+            "insert into todos (context, created) values ($1, current_timestamp);",
             [item]
         );
-        console.table(res.rows);
     } catch (ex) {
         throw ex;
     } finally {
@@ -36,7 +35,6 @@ async function deleteTodo(id) {
     try {
         await db.connect();
         const result = await db.query("delete from todos where id=$1", [id]);
-        console.table(result.rows);
     } catch (ex) {
         throw ex;
     } finally {

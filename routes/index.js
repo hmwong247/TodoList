@@ -16,7 +16,6 @@ router.get("/", async (req, res) => {
         await db.connect();
         const { rows } = await db.query("select * from todos;");
         results = rows;
-        console.table(results);
     } catch (ex) {
         throw ex;
     } finally {
