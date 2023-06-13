@@ -1,6 +1,7 @@
+require('dotenv').config();
 const express = require("express");
 const app = express();
-port = 8000;
+port = process.env.APP_PORT;
 
 // debug variable
 global.todos = ["eat", "work", "sleep"];
