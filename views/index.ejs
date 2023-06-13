@@ -7,7 +7,7 @@
     </nav>
 
     <div class="container mt-3">
-        <form action="todos" method="POST" class="d-flex">
+        <form action="/todos" method="POST" class="d-flex">
             <input
                 type="text"
                 name="todoInput"
@@ -18,11 +18,21 @@
         </form>
 
         <ul class="list-group mt-3">
-            <li class="list-group-item">Dummy</li>
-            <% locals.todos.forEach(e => { %>
-            <li class="list-group-item"><%= e %></li>
+            <li class="list-group-item list-group-item-action">Dummy</li>
+            <% locals.todos.forEach(entry => { %>
+            <div class="hstack gap-2">
+                <li class="list-group-item list-group-item-action">
+                    <%= entry.context %>
+                </li>
+                <form action="/todos/delete/<%= entry.id %>" method="POST">
+                    <input
+                        type="submit"
+                        value="Done"
+                        class="btn btn-md btn-success"
+                    />
+                </form>
+            </div>
             <% }); %>
         </ul>
-        Todo list: <%= locals.todos || "Nothing!" %>
     </div>
 </body>

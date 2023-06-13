@@ -3,9 +3,6 @@ const express = require("express");
 const app = express();
 port = process.env.APP_PORT;
 
-// debug variable
-global.todos = ["eat", "work", "sleep"];
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
